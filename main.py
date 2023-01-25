@@ -2118,3 +2118,4 @@ from random import randint
 # print(*(chr(x) for x in range(a, b + 1)) if a<b else(chr(x) for x in range(b, a + 1)) )
 
 print('Hello, world!')
+print('Ура, у меня получилось!')
