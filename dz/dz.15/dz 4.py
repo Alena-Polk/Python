@@ -20,3 +20,4 @@ print("Количество слов:", sum(1 for s in s if s.startswith('е')))
 # print("Количество слов:", j)
 
 
+
