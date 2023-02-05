@@ -2291,6 +2291,7 @@ from random import randint
 
 import re
 
+
 # s = "Я ищу совпадения в 2023 году. И я их найду в 2 счёта."
 # reg = 'я'
 # print(re.findall(reg, s)) #возвращает список, содержащий все совпадения,
@@ -2342,3 +2343,119 @@ import re
 
 # reg = r'2[0-9][0-9][0-9]'
 # print(re.findall(reg, s))
+
+
+# s1 ='192.168.255.255' # '127.0.0.1'
+# # reg = r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'
+# reg = r'(?:\d{1,3}.){3}\d{1,3}'
+# print(re.findall(reg, s1))
+
+# s1 ='Word2016, PS6, AI5'
+# reg = r'(([A-z]+)(\d+))'
+# # print(re.findall(reg, s1)[0][0])
+# print(re.findall(reg, s1, re.IGNORECASE))
+# print(ord('Я'))
+# print(ord('а'))
+
+# s1 = '5 + 7*2 - 4'
+# # reg = r'\s*[+*-]\s*'
+# reg = r'\s*([+*-])\s*'
+# print(re.split(reg, s1))
+
+# a = '28-08-2021'
+# reg = r'(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])$'
+# print(re.findall(reg, a))
+# print(re.search(reg, a))
+
+
+# s = "Я ищу совпадения в 2023 году. И я их найду в 2 счета."
+# reg = r'([0-9]+)\s(\D+)'
+# print(re.findall(reg, s)[0])
+# print(re.search(reg, s).group())
+# m = re.search(reg, s)
+# print(m[0])
+# print(m[1])
+# print(m[2])
+
+
+# text = """
+# Самара
+# Москва
+# Тверь
+# Уфа
+# Казань
+# """
+# count = 0
+#
+#
+# def repl_find(m):
+#     global count
+#     count += 1
+#     return f"<option value = '{count}'>{m.group(1)}</option>\n"
+#
+# print(re.findall(r'\s*(\w+)\s*', text))
+# print(re.sub(r'\s*(\w+)\s*', repl_find, text))
+
+
+# s = "<p>Изображения <img src='bg.jpg'> - фон страницы</p>"
+# reg = r"<img\s+[^>]*src=(['\"])(.+)(?P=q)>"
+# print(re.findall(reg, s))
+#
+# #(?P<name>) (?P=name)
+#
+# s = "Самолет прилетает 10/23/2023. Будем вас рады видеть после 10/24/2023"
+# #24.10.2023
+# reg = r"(\d{2})/(\d{2})/(\d{4})"
+# print(re.sub(reg, r"\2.\1.\3", s))
+
+# s = "yandex.com and yandex.ru"
+# reg = r'(([a-z0-9\-]{2,}\.)+[a-z]{2,4})'
+# print(re.sub(reg, r"http://\1", s))
+
+
+# Рекурсия
+#
+# def elevator(n):
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print('->', n)
+#     elevator(n - 1)  # 5 4 3 2 1
+#     print(n, end=' ')
+#
+#
+# n1 = int(input("На каком Вы этаже: "))  # 5
+# elevator(n1)
+
+
+# def sum_list(lst):
+#     res = 0
+#     for i in lst:
+#         res += i
+#     return res
+#
+#
+# print(sum_list([1, 3, 5, 7, 9])) #25
+
+
+# def sum_list(lst):  # [9]
+#     if len(lst) == 1:
+#         print(lst, '-> lst[0]:', lst[0])
+#         return lst[0] #9
+#     else:
+#         print(lst, '-> lst[0]:', lst[0])
+#         return lst[0] + sum_list(lst[1:]) #1 + 3 + 5 + 7 +
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))
+
+#
+# def to_str(n, base):# 7
+#     convert = '0123456789ABCDEF'
+#     if n < base:
+#         return convert[n] # '7'
+#     else:
+#         return to_str(n // base, base) + convert[n % base] # '9' '6'
+#
+#
+# print(to_str(18, 16))
