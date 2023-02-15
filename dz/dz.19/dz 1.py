@@ -14,8 +14,6 @@ def seq_search(s, item):
 
 spisok = [randint(1, 100) for i in range(10)]
 print(spisok)
-spisok.sort()
-print(spisok)
 user = int(input("Введите число: "))
 if seq_search(spisok, user):
     print(f'Число {user} в списке присутствует')
