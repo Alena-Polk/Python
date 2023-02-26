@@ -2726,26 +2726,26 @@ import re
 #     print(f'Число {n} в списке отсутствует')
 
 
-# Aлгоритмы сортировки
-"Пузырьковая сортировка"
-from random import randint
-import time
-
-def bubble(array):
-    for i in range(len(array) - 1):
-        for j in range(len(array) - i - 1):
-            if array[j] < array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
-
-
-a = [randint(1, 100) for i in range(10000)]
-
-print(a)
-start = time.monotonic()
-bubble(a)
-print(a)
-res = time.monotonic() - start
-print(round(res, 3), 'sec')
+# # Aлгоритмы сортировки
+# "Пузырьковая сортировка"
+# from random import randint
+# import time
+#
+# def bubble(array):
+#     for i in range(len(array) - 1):
+#         for j in range(len(array) - i - 1):
+#             if array[j] < array[j + 1]:
+#                 array[j], array[j + 1] = array[j + 1], array[j]
+#
+#
+# a = [randint(1, 100) for i in range(10000)]
+#
+# print(a)
+# start = time.monotonic()
+# bubble(a)
+# print(a)
+# res = time.monotonic() - start
+# print(round(res, 3), 'sec')
 
 
 # Сортировка слияние
@@ -2845,6 +2845,7 @@ print(round(res, 3), 'sec')
 # f.close()
 # print(f.closed)
 
+
 # f = open('text1.txt', 'r')
 # print(f.read(3))
 # print(f.read())
@@ -2858,7 +2859,6 @@ print(round(res, 3), 'sec')
 # print(f.readline())
 # f.close()
 
-
 # f = open('test.txt', 'r')
 # print(f.readlines(16))
 # print(f.readlines())
@@ -2870,14 +2870,8 @@ print(round(res, 3), 'sec')
 #     print(line)
 #
 # f.close()
-
-# lines = 0
-# f = open('test.txt')
-# for line in f:
-#     lines += 1
-# print(lines)
-# f.close()
-
+#
+#
 # fail = open('test.txt')
 # count_lines = len(fail.readlines())
 # print(count_lines)
@@ -2890,15 +2884,14 @@ print(round(res, 3), 'sec')
 # print(lines)
 # # f.writelines(lines)
 # for index in lines:
-#     f.write(index + '\n')
+#     f.write(index + "\t")
 # f.close()
 
-
-# f = open('text2.txt', 'w')
-# f.write('Замена строки в текстовом файле; \nизменить строку в списке;\nзаписать список в файл;')
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;")
 # f.close()
 #
-# f = open('text2.txt', 'r')
+# f = open("text2.txt", "r")
 # read_f = f.readlines()
 # print(read_f)
 # for i in range(len(read_f)):
@@ -2907,7 +2900,7 @@ print(round(res, 3), 'sec')
 # print(read_f)
 # f.close()
 #
-# f = open('text2.txt', 'w')
+# f = open("text2.txt", "w")
 # f.writelines(read_f)
 # f.close()
 
@@ -2936,8 +2929,9 @@ print(round(res, 3), 'sec')
 #         print(line[:6])
 
 
-# file_name = 'res_1.txt'
+# file_name = "res_1.txt"
 # lst = [4.5, 2.8, 1.0, 0.3, 4.33, 7.777]
+#
 #
 # def get_line(lt):
 #     lt = list(map(str, lt))
@@ -2950,22 +2944,27 @@ print(round(res, 3), 'sec')
 #
 # print("Done!")
 
-# file_name = 'res_1.txt'
+# file_name = "res_1.txt"
 #
-# numbers = [4.5, 2.8, 1.0, 0.3, 4.33, 7.777]
+# numbers = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
+#
 #
 # def get_string(l: list) -> str:
 #     return '\t'.join(map(str, l))
 #
 #
 # with open(file_name, 'r+', encoding='utf-8') as file:
+#     # text = get_string(numbers)
+#     # file.write(text)
 #     nums = file.read()
 #     print(nums)
 #     nums_list = list(map(float, nums.split('\t')))
 #     print(nums_list)
+#     print(len(nums_list))
+#     print(sum(nums_list))
 
 # def longest_world(file):
-#     with open(file, 'r', encoding='utf-8') as text:
+#     with open(file, 'r') as text:
 #         w = text.read().split()
 #         max_length = len(max(w, key=len))
 #         res = [word for word in w if len(word) == max_length]
@@ -2974,18 +2973,18 @@ print(round(res, 3), 'sec')
 #         return res
 #
 #
-# file_name = 'res_1.txt'
+# file_name = "res_1.txt"
 # print(longest_world(file_name))
 
-#
+
 # text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
 #
 # with open('one.txt', 'w') as f:
 #     f.write(text)
 
 
-# read_file = 'one_txt'
-# write_file = 'two_txt'
+# read_file = 'one.txt'
+# write_file = 'two.txt'
 # with open(read_file, 'r') as fr, open(write_file, 'w') as fw:
 #     for line in fr:
 #         line = line.replace("Строка", "Линия - ")
@@ -2994,13 +2993,12 @@ print(round(res, 3), 'sec')
 
 # Модуль OS (OS.PATH)
 
-# import os
-# import os.path
-# import time
-#
-# print(os.path.split(r'C:\Users\Admin\Desktop\python'))
+import os
+import time
 
-# print(os.getcwd())  # возращает текущую директорию
+# import os.path
+
+# print(os.getcwd())  # возвращает путь к текущей директории
 # print(os.listdir())  # возвращает список папок и файлов, находящихся в текущей директории
 # print(os.listdir("../.."))  #
 
@@ -3011,12 +3009,13 @@ print(round(res, 3), 'sec')
 
 # os.rename("nested1", "test")  # переименование папок и файлов
 
-# os.rename("text.txt", "test/text1.txt")  # перемещение файла, все промежуточные директории должны существовать обязательно
+# os.rename("text.txt", "test/text1.txt")  # все промежуточные директории должны существовать обязательно
 # os.renames("text1.txt", "text/text.txt")  # создаются промежуточные директории
 
 # os.rmdir("folder")  # удаление пустой директории
 
-# for root, dirs, files in os.walk("test", topdown=True):  #  topdown=True - сверху сниз, topdown=False - снизу вверх
+
+# for root, dirs, files in os.walk("test", topdown=False):  # topdown=True - сверху вниз, topdown=False - снизу вверх
 #     print("Root:", root)
 #     print("Sub_dirs:", dirs)
 #     print("Files:", files)
@@ -3035,17 +3034,16 @@ print(round(res, 3), 'sec')
 
 # os.path
 
-# print(os.path.split(r'C:\Users\Admin\Desktop\python\.txt')[1])  # разбивает путь на кортеж
-# print(os.path.dirname(r'C:\Users\Admin\Desktop\python\.txt'))  # имя директории
-# print(os.path.basename(r'C:\Users\Admin\Desktop\python\.txt'))  # имя файла
+# print(os.path.split(r'D:\Python212\212\test\nested2\nested3\xyz.txt')[1])  # разбивает путь на кортеж (head, tail)
+# print(os.path.dirname(r'D:\Python212\212\test\nested2\nested3\xyz.txt'))  # имя директории
+# print(os.path.basename(r'D:\Python212\212\test\nested2\nested3\xyz.txt'))  # имя файла
 
-# print(os.path.join(r'D:\Python212', '212', 'test', 'xyz.txt'))  # соединяет один или несколько компонентов пути с
-# # учетом особенностей OS
-#
+# print(os.path.join(r'D:\Python212', '212', 'test', 'xyz.txt'))  # соединяет один или несколько компонентов пути с учетом особенностей OS
+
 # dirs = [r'Work\F1', r'Work\F2\F21']
 # for d in dirs:
 #     os.makedirs(d)
-#
+
 # files = {
 #     'Work': ['w.txt'],
 #     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
@@ -3058,19 +3056,18 @@ print(round(res, 3), 'sec')
 #         # print(file_path)
 #         open(file_path, 'w').close()
 #
-#
 # file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
 #
 # for file in file_with_text:
 #     with open(file, 'w') as f:
-#         f.write(f'some sample text for {file} file')
+#         f.write(f"some sample text for {file} file")
 #
 #
 # def print_tree(root, topdown):
 #     print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
-#     for root, dirss, fl in os.walk(root, topdown):
+#     for root, dirs, fl in os.walk(root, topdown=topdown):
 #         print(root)
-#         print(dirss)
+#         print(dirs)
 #         print(fl)
 #     print('-' * 50)
 #
@@ -3080,24 +3077,23 @@ print(round(res, 3), 'sec')
 
 
 # print(os.path.exists(r'D:\Python212\212\test\nested2\nested3\xyz1.txt'))  # возвращает True, если путь указывает на
-# # существующий путь в файловой системе
+# существующий путь в файловой системе
 
-# path = r'D:\Python212\212\venv\Script\python.exe'
+# path = r'D:\Python212\212\venv\Scripts\python.exe'
 # k_size = os.path.getsize(path)  # размер файла
 # print(k_size // 1024)
 # print(os.path.getmtime(path))  # время последнего изменения файла
 # print(os.path.getatime(path))  # время последнего доступа к файлу
 # t = os.path.getctime(path)  # время создания файла
-# print(time.strftime(("%d.%m.%Y, %H:%M:%S", time.localtime(t))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(t)))
 
-# ________________
 
-# file_path = r'test\nested2\test.txt'
+# file_path = r'test\nested2'
 #
 # if os.path.exists(file_path):
 #     dirs, name = os.path.split(file_path)
 #     atime = os.path.getmtime(file_path)
-#     print(f"{name} ({dirs})) - last access time {time.strftime('%d.%m.%Y, %H:%M:%S', time.localtime(atime))}")
+#     print(f"{name} ({dirs}) - last access time {time.strftime('%d.%m.%Y, %H:%M:%S', time.localtime(atime))}")
 # else:
 #     print(f"File {file_path} does not exist!")
 
@@ -3105,7 +3101,7 @@ print(round(res, 3), 'sec')
 # print(os.path.isdir(file_path))  # возвращает True, если указанный путь является директорией
 
 
-# dir_name = r"test\nested2"
+# dir_name = r'test\nested2'
 #
 # obj = os.listdir(dir_name)
 # print(obj)
@@ -3118,8 +3114,7 @@ print(round(res, 3), 'sec')
 #     elif os.path.isdir(p):
 #         print(f'{i} - dir')
 
-# ООП (объектно-ориентированное программирование)
-
+# OOП (объектно-ориентированное программирование)
 
 # class Point:
 #     """Класс для предоставления координат точек на плоскости"""
@@ -3135,7 +3130,7 @@ print(round(res, 3), 'sec')
 #
 # class Point:
 #     x = 1
-#     y = 1
+#     y = 1  # 100
 #
 #
 # p1 = Point()
@@ -3146,7 +3141,8 @@ print(round(res, 3), 'sec')
 # print(p1.__dict__)
 # print(Point.__dict__)
 # print(type(p1))
-# print(isinstance(p1, Point))
+# print(isinstance(p1, Point3D))
+
 
 # p2 = Point()
 # print(p2.x, p2.y)
@@ -3161,7 +3157,6 @@ print(round(res, 3), 'sec')
 #     y = 1
 #
 #     def set_coord(self, x, y):
-#         # print(self.__dict__)
 #         self.x = x
 #         self.y = y
 #         print(self.__dict__)
@@ -3175,7 +3170,6 @@ print(round(res, 3), 'sec')
 # Point.set_coord(p1, 8, 12)
 # # print(p1.__dict__)
 #
-#
 # p2 = Point()
 # # p2.x = 20
 # # p2.y = 30
@@ -3185,10 +3179,10 @@ print(round(res, 3), 'sec')
 # class Human:
 #     name = "name"
 #     birthday = "00.00.0000"
-#     phone = "00-00-00"
+#     phone = '00-00-00'
 #     country = "country"
 #     city = "city"
-#     address = "street, house"
+#     address = 'street, house'
 #
 #     def print_info(self):
 #         print(" Персональные данные ".center(40, "*"))
@@ -3220,47 +3214,11 @@ print(round(res, 3), 'sec')
 # print(h1.get_name())
 
 
-# class Car:
-#     model = None
-#     year = None
-#     name_pr = None
-#     power = None
-#     color = None
-#     price = None
-#
-#     def input_data(self, m, y, name, p, c, pr):
-#         self.model = m
-#         self.year = y
-#         self.name_pr = name
-#         self.power = p
-#         self.color = c
-#         self.price = pr
-#
-#     def output_data(self):
-#         print("Название модели:", self.model)
-#         print("Год выпуска:", self.year)
-#         print("Производитель:", self.name_pr)
-#         print("Мощность двигателя:", self.power, 'Л.,С.')
-#         print("Цвет машины:", self.color)
-#         print("Цена:", self.price)
-#
-#     def get_model(self):
-#         return self.model
-#
-#     def set_model(self, value):
-#         self.model = value
-#
-#
-# BMW = Car()
-# BMW.input_data('X7 N501', 2021, 'BMW', 530, "white", 10790000)
-# BMW.output_data()
-
-
 # class Person:
 #     skill = 10
+#
 #     # name = ""
 #     # surname = ""
-#
 #     def __init__(self, name, surname):
 #         self.name = name
 #         self.surname = surname
@@ -3274,7 +3232,7 @@ print(round(res, 3), 'sec')
 #
 #     def add_skill(self, k):
 #         self.skill += k
-#         print(f"Квалификация сотрудника:, {self.name}", self.skill, "\n")
+#         print(f"Квалификация сотрудника: {self.name}", self.skill, "\n")
 #
 #
 # p1 = Person("Viktor", "Reznik")
@@ -3288,7 +3246,7 @@ print(round(res, 3), 'sec')
 
 
 # class Point:
-#     count = 0
+#     count = 0  # 3
 #
 #     def __init__(self, x, y):
 #         self.x = x
@@ -3301,41 +3259,353 @@ print(round(res, 3), 'sec')
 # print("count =", Point.count)
 # p2 = Point(15, 20)
 # print(p2.count)
+# print("count =", Point.count)
 # p3 = Point(23, 39)
 # print(p3.count)
 # print("count =", Point.count)
 # print(p1.count)
 
 
-class Robot:
-    k = 0
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print(f"Инициализация {self.name}")
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, "выключается!")
+#         Robot.k -= 1
+#         if Robot.k == 0:
+#             print(self.name, "был последним")
+#         else:
+#             print("Работающих роботов осталось:", Robot.k)
+#
+#     def say_hi(self):
+#         print("Приветствую! Меня зовут:", self.name)
+#
+#
+# droid1 = Robot('R2-D2')
+# droid1.say_hi()
+# Robot.say_hi(droid1)
+# print("Численность роботов:", Robot.k)
+#
+# droid2 = Robot('C-3PO')
+# droid2.say_hi()
+# print("Численность роботов:", Robot.k)
+#
+# print()
+# del droid1
+# del droid2
+# print("Численность роботов:", Robot.k)
 
-    def __init__(self, name):
-        self.name = name
-        print(f"Инициализация {self.name}")
-        Robot.k += 1
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#
+#     def __check_value(z):
+#         if isinstance(z, int) or isinstance(z, float):
+#             return True
+#         return False
+#
+#     def set_coord(self, x, y):  # установить координаты
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coord(self):  # получить координаты
+#         return self.__x, self.__y
+#
+#     def set_x(self, x):
+#         if Point.__check_value(x):
+#             self.__x = x
+#         else:
+#             print(f"Координата X должны быть числом")
+#
+#     def get_x(self):
+#         return self.__x
+#
+#     def set_y(self, y):
+#         if Point.__check_value(y):
+#             self.__y = y
+#         else:
+#             print(f"Координата Y должны быть числом")
+#
+#     def get_y(self):
+#         return self.__y
+#
+#
+# p1 = Point(5, 10)
+# # print(p1.get_coord())
+# # p1.set_coord(1.5, 7)
+# # # p1.__x = 100
+# # print(p1.get_coord())
+# # print(p1.__x)
+# # p1.y = 'abc'
+# # print(p1.x, p1.y)
+# # p1.set_x(8)
+# # p1.set_y(16)
+# # print(p1.get_x())
+# # print(p1.get_y())
+# print(p1.__dict__)
+# print(p1._Point__x)
+# p1._Point__x = 111
+# print(p1.__dict__)
 
-    def __del__(self):
-        print(self.name, "выключается!")
-        Robot.k -= 1
-        if Robot.k == 0:
-            print(self.name, "Был последним")
-        else:
-            print("Работающих роботов осталось:", Robot.k)
 
-    def say_hi(self):
-        print("Приветствую! Меня зовут:", self.name)
+# class Point:
+#     __slots__ = ["__x", "__y", "z"]
+#
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#
+#     def __check_value(z):
+#         if isinstance(z, int) or isinstance(z, float):
+#             return True
+#         return False
+#
+#     def set_coord(self, x, y):  # установить координаты
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coord(self):  # получить координаты
+#         return self.__x, self.__y
+#
+#     def set_x(self, x):
+#         if Point.__check_value(x):
+#             self.__x = x
+#         else:
+#             print(f"Координата X должны быть числом")
+#
+#     def get_x(self):
+#         return self.__x
+#
+#     def set_y(self, y):
+#         if Point.__check_value(y):
+#             self.__y = y
+#         else:
+#             print(f"Координата Y должны быть числом")
+#
+#     def get_y(self):
+#         return self.__y
+#
+#
+# p1 = Point(5, 10)
+# p1.z = 1
+# print(p1.z)
 
 
-droid1 = Robot('R2-D2')
-droid1.say_hi()
-print("Численность роботов:", Robot.k)
+# print(p1.__dict__)
 
-droid2 = Robot('C-3PO')
-droid2.say_hi()
-print("Численность роботов:", Robot.k)
 
-print()
-del droid1
-del droid2
-print("Численность роботов:", Robot.k)
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __get_x(self):
+#         print("Вызов __get")
+#         return self.__x
+#
+#     def __set_x(self, x):
+#         print("Вызов __set")
+#         self.__x = x
+#
+#     def __del_x(self):
+#         print("Удаление свойства")
+#         del self.__x
+#
+#     # x = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.x = 100
+# print(p1.x)
+# del p1.x
+# print(p1.__dict__)
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     @property
+#     def x(self):
+#         print("Вызов __get")
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, x):
+#         print("Вызов __set")
+#         self.__x = x
+#
+#     @x.deleter
+#     def x(self):
+#         print("Удаление свойства")
+#         del self.__x
+#
+#     # x = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.x = 100
+# print(p1.x)
+# del p1.x
+# print(p1.__dict__)
+
+
+# class KgToPounds:
+#     def __init__(self, kg):
+#         self.__kg = kg
+#
+#     @property
+#     def kg(self):
+#         return self.__kg
+#
+#     @kg.setter
+#     def kg(self, new_kg):
+#         if isinstance(new_kg, (int, float)):
+#             self.__kg = new_kg
+#         else:
+#             print('Килограммы задаются только числами')
+#
+#     def to_pounds(self):
+#         return self.__kg * 2.205
+#
+#
+# weight = KgToPounds(12)
+# print(weight.kg, "кг => ", end="")
+# print(weight.to_pounds(), "фунтов")
+# weight.kg = 41
+# print(weight.kg, "кг => ", end="")
+# print(weight.to_pounds(), "фунтов")
+# weight.kg = "abc"
+# print(weight.kg, "кг => ", end="")
+# print(weight.to_pounds(), "фунтов")
+
+# class Person:
+#     def __init__(self, name, old):
+#         self.__name = name
+#         self.__old = old
+#
+#     @property
+#     def name(self):
+#         return self.__name
+#
+#     @name.setter
+#     def name(self, new_name):
+#         self.__name = new_name
+#
+#     @name.deleter
+#     def name(self):
+#         del self.__name
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, new_old):
+#         self.__old = new_old
+#
+#     @old.deleter
+#     def old(self):
+#         del self.__old
+#
+#
+# p1 = Person("Irina", 26)
+# print(p1.__dict__)
+# p1.name = "Igor"
+# print(p1.name)
+# p1.old = 31
+# print(p1.old)
+# del p1.name
+# print(p1.__dict__)
+
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.__x = x
+#         self.__y = y
+#         Point.__count += 1
+#
+#     @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#     # get_count = staticmethod(get_count)
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+# print(p1.__dict__)
+# print(Point.get_count())
+# print(p2.get_count())
+
+
+# class Change:
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# print(Change.inc(10), Change.dec(10))
+
+import math
+
+
+class Area:
+    count = 0  # 5
+
+    @staticmethod
+    def triangle_area(a, b, c):
+        p = (a + b + c) / 2
+        Area.count += 1
+        return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+    @staticmethod
+    def triangle_area2(a, h):
+        Area.count += 1
+        return 0.5 * a * h
+
+    @staticmethod
+    def square_area(a):
+        Area.count += 1
+        return a ** 2
+
+    @staticmethod
+    def rect_area(a, b):
+        Area.count += 1
+        return a * b
+
+    @staticmethod
+    def get_count():
+        return Area.count
+
+
+print(f"Площадь треугольника по формуле Герона:", Area.triangle_area(3, 4, 5))
+print(f"Площадь треугольника через основание и высоту:", Area.triangle_area2(6, 7))
+print(f"Площадь квадрата:", Area.square_area(7))
+print(f"Площадь квадрата:", Area.square_area(9))
+print(f"Площадь прямоугольника:", Area.rect_area(2, 6))
+print(f"Количество подсчетов площади: {Area.get_count()}")
