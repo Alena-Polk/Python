@@ -3164,7 +3164,7 @@
 
 # Регулярные выражения
 
-import re
+# import re
 
 # s = "Я ищу совпадения в 2023 году. И я их найде в 2 счёта. 98_12."
 # # reg = r'\.'
@@ -3643,8 +3643,8 @@ import re
 
 # Алгоритмы сортировки
 # "Пузырьковая сортировка"
-from random import randint
-import time
+# from random import randint
+# import time
 
 # def bubble(array):
 #     for i in range(len(array) - 1):
@@ -3931,8 +3931,8 @@ import time
 
 # Модуль OS (OS.PATH)
 
-import os
-import time
+# import os
+# import time
 
 # import os.path
 
@@ -6846,7 +6846,7 @@ import time
 
 # CSV (Comma Separated Values)
 
-import csv
+# import csv
 
 # with open('data.csv') as f:
 #     file_reader = csv.reader(f, delimiter=";")
@@ -7025,7 +7025,7 @@ import csv
 # if __name__ == '__main__':
 #     main()
 
-
+#
 # import requests
 # from bs4 import BeautifulSoup
 # import re
@@ -7175,75 +7175,75 @@ import csv
 #         print("Введен некорректный номер")
 
 
-import requests
-from bs4 import BeautifulSoup
-import csv
-
-
-def get_html(url):
-    res = requests.get(url)
-    return res.text
-
-
-def refine_cy(s):
-    return s.split()[-1]
-
-
-def write_csv(data):
-    with open('plugins1.csv', 'a', encoding='utf-8-sig') as f:
-        writer = csv.writer(f, delimiter=';', lineterminator='\r')
-        writer.writerow((data['name'], data['url'], data['snippet'], data['active_install'], data['tests']))
-
-
-def get_data(html):
-    soup = BeautifulSoup(html, "lxml")
-    element = soup.find_all('article', class_='plugin-card')
-    for el in element:
-        try:
-            name = el.find('h3').text
-        except ValueError:
-            name = ''
-
-        try:
-            url = el.find('h3').find('a').get('href')
-        except ValueError:
-            url = ''
-
-        try:
-            snippet = el.find('div', class_="entry-excerpt").text.strip()
-        except ValueError:
-            snippet = ''
-
-        try:
-            active = el.find('span', class_="active-installs").text.strip()
-        except ValueError:
-            active = ''
-
-        try:
-            c = el.find('span', class_="tested-with").text.strip()
-            cy = refine_cy(c)
-        except ValueError:
-            cy = ''
-
-        data = {
-            'name': name,
-            'url': url,
-            'snippet': snippet,
-            'active_install': active,
-            'tests': cy
-        }
-
-        write_csv(data)
-
-
-def main():
-    for i in range(9, 26):
-        url = f'https://ru.wordpress.org/plugins/browse/blocks/page/{i}/'
-        get_data(get_html(url))
-
-
-if __name__ == '__main__':
-    main()
+# import requests
+# from bs4 import BeautifulSoup
+# import csv
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def refine_cy(s):
+#     return s.split()[-1]
+#
+#
+# def write_csv(data):
+#     with open('plugins1.csv', 'a', encoding='utf-8-sig') as f:
+#         writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#         writer.writerow((data['name'], data['url'], data['snippet'], data['active_install'], data['tests']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     element = soup.find_all('article', class_='plugin-card')
+#     for el in element:
+#         try:
+#             name = el.find('h3').text
+#         except ValueError:
+#             name = ''
+#
+#         try:
+#             url = el.find('h3').find('a').get('href')
+#         except ValueError:
+#             url = ''
+#
+#         try:
+#             snippet = el.find('div', class_="entry-excerpt").text.strip()
+#         except ValueError:
+#             snippet = ''
+#
+#         try:
+#             active = el.find('span', class_="active-installs").text.strip()
+#         except ValueError:
+#             active = ''
+#
+#         try:
+#             c = el.find('span', class_="tested-with").text.strip()
+#             cy = refine_cy(c)
+#         except ValueError:
+#             cy = ''
+#
+#         data = {
+#             'name': name,
+#             'url': url,
+#             'snippet': snippet,
+#             'active_install': active,
+#             'tests': cy
+#         }
+#
+#         write_csv(data)
+#
+#
+# def main():
+#     for i in range(9, 26):
+#         url = f'https://ru.wordpress.org/plugins/browse/blocks/page/{i}/'
+#         get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
 # from parse import Parser
@@ -7256,3 +7256,21 @@ if __name__ == '__main__':
 #
 # if __name__ == '__main__':
 #     main()
+
+# import socket
+#
+#
+# def run():
+#     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server_socket.bind(('127.0.0.1', 5000))
+#     server_socket.listen()
+#
+#     while True:
+#         client_socket, addr = server_socket.accept()
+#         request = client_socket.recv(1024)
+#
+#         print(f"Клиент: {addr} => \n{request}\n")
+#
+#
+# if __name__ == '__main__':
+#     run()
