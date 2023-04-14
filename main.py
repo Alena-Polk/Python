@@ -7259,6 +7259,41 @@
 
 # import socket
 #
+# URLS = {
+#     '/': 'index page',
+#     '/blog': 'blog page'
+# }
+#
+#
+# def parse_request(request):
+#     parsed = request.split()
+#     method = parsed[0]
+#     url = parsed[1]
+#     return method, url
+#
+#
+# def generate_headers(method, url):
+#     if method != 'GET':
+#         return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
+#     if url not in URLS:
+#         return 'HTTP/1.1 401 Page Not Fond!\n\n', 404
+#     return 'HTTP/1.1 200 OK!\n\n', 200
+#
+#
+# def generate_content(code, url):
+#     if code == 404:
+#         return '<h1>404</h1><h3>Page not found!</h3>'
+#     elif code == 405:
+#         return '<h1>405</h1><h3>Method not allowed!!</h3>'
+#     return URLS[url]
+#
+#
+# def generate_response(request):
+#     method, url = parse_request(request)
+#     headers, code = generate_headers(method, url)
+#     body = generate_content(code, url)
+#     return (headers + body).encode()
+#
 #
 # def run():
 #     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -7269,9 +7304,91 @@
 #         client_socket, addr = server_socket.accept()
 #         request = client_socket.recv(1024)
 #
-#         print(f"Клиент: {addr} => \n{request}\n")
+#         print(f"Клиент: {addr} => \n{request.decode('utf-8')}\n")
+#
+#         response = generate_response(request.decode())
+#         client_socket.sendall(response)
+#         client_socket.close()
 #
 #
 # if __name__ == '__main__':
 #     run()
 
+# СУБД (Система управления базами данных)
+# SQL (язык структурированных запросов)
+
+# *.db, *.sqlite, *.sqlite3, *.sdb, *.db2
+
+
+import sqlite3
+#
+# # con = sqlite3.connect('profile.db')
+# # cur = con.cursor()
+# #
+# # con.close()
+
+#
+# with sqlite3.connect('users.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     ALTER TABLE person_table
+#     ADD COLUMN address TEXT NOT NULL DEFAULT "addr";
+#     """)
+
+# with sqlite3.connect('users.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     ALTER TABLE person_table
+#     RENAME COLUMN address TO home_address";
+#     """)
+
+# with sqlite3.connect('users.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     DROP TABLE person_table;
+#     """)
+
+#
+# with sqlite3.connect('profile.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""CREATE TABLE IF NOT EXISTS users(
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL,
+#     summa REAL,
+#     data TEXT
+#     )
+#     """)
+#     cur.execute('DROP TABLE users')
+
+# with sqlite3.connect('users.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""CREATE TABLE IF NOT EXISTS person(
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         name TEXT NOT NULL,
+#         phone GLOB NOT NULL DEFAULT '+79090000000',
+#         age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+#         email TEXT UNIQUE
+#         )""")
+#     cur.execute("""
+#     ALTER TABLE person
+#     RENAME TO person_table;
+#     """)
+
+# with sqlite3.connect('db_4.db') as con:
+#     cur = con.cursor()
+#     cur .execute("""
+#     SELECT*
+#     FROM Ware
+#     ORDER BY Price DESC
+#     LIMIT 2, 5;
+#     """)
+#
+#     # res = cur.fetchall()
+#     # print(res)
+#     for res in cur:
+#         print(res)
+
+    # res = cur.fetchone()
+    # print(res)
+    # res2 = cur.fetchmany(3)
+    # print(res2)

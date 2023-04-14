@@ -1,6 +1,7 @@
 import os.path
 import pickle
 
+
 class Article:
     def __init__(self, title, author, pages, description):
         self.title = title
@@ -15,7 +16,7 @@ class Article:
 class ArticleModel:
     def __init__(self):
         self.db_name = 'db.txt'
-        self.articles = self.load_data()  #{}
+        self.articles = self.load_data()  # {}
 
     def add_article(self, dict_article):
         article = Article(*dict_article.values())

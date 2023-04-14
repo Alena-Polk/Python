@@ -26,7 +26,6 @@ class Controller:
                 article = self.article_model.get_single_article(article_title)
             except KeyError:
                 self.user_interface.show_incorrect_title_error(article_title)
-
             else:
                 self.user_interface.show_single_article(article)
 
