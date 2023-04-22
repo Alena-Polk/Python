@@ -86,7 +86,7 @@ WHERE CITY ="Химки" AND CITY2 ="Химки" AND SUM BETWEEN 1000 AND 1750;
 16. Определить коды всех продавцов, которые не продают сейфы.
 SELECT DISTINCT KOD
 FROM ZAKAZ
-WHERE Prod != "сейфы";
+WHERE Prod != "сейфы"; 
 
 17. Выведите список заказанных диванов на сумму большую 4000.
 SELECT Prod, SUM
