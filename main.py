@@ -970,7 +970,7 @@
 # print(randrange(9))
 
 
-# import random as r
+import random as r
 
 # print(r.randint(1, 9))
 # print(r.randrange(9))
@@ -1147,7 +1147,7 @@
 # r = int(input("Введите радус окружности: "))
 # print("Длина окружности:", round(2 * pi * r, 2))
 
-# import time
+import time
 
 # second = time.time()
 # print(second)
@@ -3164,7 +3164,7 @@
 
 # Регулярные выражения
 
-# import re
+import re
 
 # s = "Я ищу совпадения в 2023 году. И я их найде в 2 счёта. 98_12."
 # # reg = r'\.'
@@ -3643,8 +3643,8 @@
 
 # Алгоритмы сортировки
 # "Пузырьковая сортировка"
-# from random import randint
-# import time
+from random import randint
+import time
 
 # def bubble(array):
 #     for i in range(len(array) - 1):
@@ -3931,8 +3931,8 @@
 
 # Модуль OS (OS.PATH)
 
-# import os
-# import time
+import os
+import time
 
 # import os.path
 
@@ -6670,7 +6670,7 @@
 #
 # for i in range(5):
 #     write_json(gen_person())
-#
+
 # {'a':{}, 'b':{}}
 
 # import json
@@ -6846,10 +6846,10 @@
 
 # CSV (Comma Separated Values)
 
-# import csv
+import csv
 
 # with open('data.csv') as f:
-#     file_reader = csv.reader(f, delimiter=";")
+#     file_reader = csv.reader(f, delimiter=";")  # []
 #     count = 0
 #     for row in file_reader:
 #         if count == 0:
@@ -6862,7 +6862,7 @@
 
 # with open('data.csv') as f:
 #     file_names = ['Имя', 'Профессия', 'Год рождения']
-#     file_reader = csv.DictReader(f, delimiter=";", fieldnames=file_names)
+#     file_reader = csv.DictReader(f, delimiter=";", fieldnames=file_names)  # {}
 #     count = 0
 #     for row in file_reader:
 #         # print(row)
@@ -6871,7 +6871,8 @@
 #         print(f"\t{row['Имя']} - {row['Профессия']}. Родился в {row['Год рождения']} году.")
 #         count += 1
 
-# with open('stydend.csv', 'w') as f:
+
+# with open('student.csv', 'w') as f:
 #     write = csv.writer(f, delimiter=';', lineterminator='\r')
 #     write.writerow(['Имя', 'Класс', 'Возраст'])
 #     write.writerow(['Женя', '9', '15'])
@@ -6885,34 +6886,24 @@
 #         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
 #         ['sw4', 'Cisco', '3650', 'London, Best str']]
 #
-# with open('sw_data.csv', 'w') as f:
-#     writer = csv.writer(f, delimiter=';', lineterminator='\r')
-#     for row in data:
-#         writer.writerow(row)
-#
-# with open('sw_data.csv', 'r') as f:
-#     print(f.read())
-
-# data = [['hostname', 'vendor', 'model', 'location'],
-#         ['sw1', 'Cisco', '3750', 'London, Best str'],
-#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
-#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
-#         ['sw4', 'Cisco', '3650', 'London, Best str']]
 #
 # with open('sw_data.csv', 'w') as f:
 #     writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#     # for row in data:
+#     #     writer.writerow(row)
 #     writer.writerows(data)
 #
+#
 # with open('sw_data.csv', 'r') as f:
 #     print(f.read())
 
-# with open('styd_1.csv', 'w') as f:
-#     name = ['Имя', 'Возраст']
+# with open('stud_1.csv', 'w') as f:
+#     name = ["Имя", "Возраст"]
 #     file_writer = csv.DictWriter(f, delimiter=';', lineterminator='\r', fieldnames=name)
 #     file_writer.writeheader()
-#     file_writer.writerow({'Имя':'Саша', 'Возраст':"6"})
-#     file_writer.writerow({'Имя': 'Маша', 'Возраст': "15"})
-#     file_writer.writerow({'Имя': 'Вова', 'Возраст': "14"})
+#     file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
+#     file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
+#     file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
 
 
 # data = [{
@@ -7025,7 +7016,7 @@
 # if __name__ == '__main__':
 #     main()
 
-#
+
 # import requests
 # from bs4 import BeautifulSoup
 # import re
@@ -7257,11 +7248,13 @@
 # if __name__ == '__main__':
 #     main()
 
+
 # import socket
+# from view import index, blog
 #
 # URLS = {
-#     '/': 'index page',
-#     '/blog': 'blog page'
+#     '/': index,
+#     '/blog': blog
 # }
 #
 #
@@ -7273,10 +7266,10 @@
 #
 #
 # def generate_headers(method, url):
-#     if method != 'GET':
+#     if method != "GET":
 #         return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
 #     if url not in URLS:
-#         return 'HTTP/1.1 401 Page Not Fond!\n\n', 404
+#         return 'HTTP/1.1 404 Page Not Found!\n\n', 404
 #     return 'HTTP/1.1 200 OK!\n\n', 200
 #
 #
@@ -7284,8 +7277,8 @@
 #     if code == 404:
 #         return '<h1>404</h1><h3>Page not found!</h3>'
 #     elif code == 405:
-#         return '<h1>405</h1><h3>Method not allowed!!</h3>'
-#     return URLS[url]
+#         return '<h1>405</h1><h3>Method not allowed!</h3>'
+#     return URLS[url]()
 #
 #
 # def generate_response(request):
@@ -7314,70 +7307,75 @@
 # if __name__ == '__main__':
 #     run()
 
-# СУБД (Система управления базами данных)
+
+# СУБД (система управления базами данных)
 # SQL (язык структурированных запросов)
 
 # *.db, *.sqlite, *.sqlite3, *.sdb, *.db2
 
 
 # import sqlite3
+
+# con = sqlite3.connect("profile.db")
+# cur = con.cursor()
 #
-# # con = sqlite3.connect('profile.db')
-# # cur = con.cursor()
-# #
-# # con.close()
+#
+# con.close()
+
+# with sqlite3.connect("profile.db") as con:
+#     cur = con.cursor()
+#     # cur.execute("""CREATE TABLE IF NOT EXISTS users(
+#     # id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     # name TEXT NOT NULL,
+#     # summa REAL,
+#     # date TEXT
+#     # )
+#     # """)
+#     cur.execute("DROP TABLE users")
 
 #
-# with sqlite3.connect('users.db') as con:
+# with sqlite3.connect("users.db") as con:
 #     cur = con.cursor()
-#     cur.execute("""
-#     ALTER TABLE person_table
-#     ADD COLUMN address TEXT NOT NULL DEFAULT "addr";
-#     """)
-
-# with sqlite3.connect('users.db') as con:
-#     cur = con.cursor()
-#     cur.execute("""
-#     ALTER TABLE person_table
-#     RENAME COLUMN address TO home_address";
-#     """)
-
-# with sqlite3.connect('users.db') as con:
-#     cur = con.cursor()
+#
 #     cur.execute("""
 #     DROP TABLE person_table;
 #     """)
 
-#
-# with sqlite3.connect('profile.db') as con:
-#     cur = con.cursor()
-#     cur.execute("""CREATE TABLE IF NOT EXISTS users(
-#     id INTEGER PRIMARY KEY AUTOINCREMENT,
-#     name TEXT NOT NULL,
-#     summa REAL,
-#     data TEXT
-#     )
-#     """)
-#     cur.execute('DROP TABLE users')
+# cur.execute("""
+# ALTER TABLE person_table
+# DROP COLUMN home_address;
+# """)
 
-# with sqlite3.connect('users.db') as con:
+
+# cur.execute("""
+# ALTER TABLE person_table
+# RENAME COLUMN address TO home_address;
+# """)
+
+
+# cur.execute("""
+# ALTER TABLE person_table
+# ADD COLUMN address TEXT NOT NULL DEFAULT 'addr';
+# """)
+
+
+# cur.execute("""CREATE TABLE IF NOT EXISTS person(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT NOT NULL,
+# phone BLOB NOT NULL DEFAULT '+79090000000',
+# age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+# email TEXT UNIQUE
+# )""")
+# cur.execute("""
+# ALTER TABLE person
+# RENAME TO person_table;
+# """)
+
+
+# with sqlite3.connect("db_4.db") as con:
 #     cur = con.cursor()
-#     cur.execute("""CREATE TABLE IF NOT EXISTS person(
-#         id INTEGER PRIMARY KEY AUTOINCREMENT,
-#         name TEXT NOT NULL,
-#         phone GLOB NOT NULL DEFAULT '+79090000000',
-#         age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
-#         email TEXT UNIQUE
-#         )""")
 #     cur.execute("""
-#     ALTER TABLE person
-#     RENAME TO person_table;
-#     """)
-
-# with sqlite3.connect('db_4.db') as con:
-#     cur = con.cursor()
-#     cur .execute("""
-#     SELECT*
+#     SELECT *
 #     FROM Ware
 #     ORDER BY Price DESC
 #     LIMIT 2, 5;
@@ -7393,61 +7391,208 @@
 # res2 = cur.fetchmany(3)
 # print(res2)
 
+
 # import sqlite3
+
+# cars = [
+#     ('BMW', 54000),
+#     ('Chevrolet', 46000),
+#     ('Daewoo', 38000),
+#     ('Citroen', 29000),
+#     ('Honda', 33000)
+# ]
 #
-# cars = [('BMW', 54000),
-#         ('Chevrolet', 46000),
-#         ('Daewoo', 38000),
-#         ('Citroen', 29000),
-#         ('Honda', 33000),
-#         ]
-# with sqlite3.connect('cars.db') as con:
+# with sqlite3.connect("cars.db") as con:
 #     cur = con.cursor()
 #     cur.execute("""
-#     CREATE TABLE IF NOT EXISTS CARS(
-#     car_id INTEGER PRIMARY KEY AUTOINCREMENT,
-#     model TEXT,
-#     price INTEGER)
-#     """)
+#     CREATE TABLE IF NOT EXISTS cars(
+#         car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         model TEXT,
+#         price INTEGER
+#     )""")
+#
 #     cur.executescript("""
-#         DELETE FROM cars WHERE model LIKE 'B%':
+#         DELETE FROM cars WHERE model LIKE 'B%';
 #         UPDATE cars SET price = price + 100;
 #     """)
-# cur.execute('UPDATE cars SET price = 0 WHERE model LIKE "B%"', {'Price': 0})
 
-# cur.executemany('INSERT INTO cars VALUES(NULL, ?, ?)', cars)
+# cur.execute("UPDATE cars SET price = :Price WHERE model LIKE 'B%'", {'Price': 0})
+
+# cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars)
 
 # for car in cars:
-#     cur.execute('INSERT INTO cars VALUES(NULL, ?, ?)', car)
-# cur.execute('INSERT INTO cars VALUES(1, "Renault", 22000')
-# cur.execute('INSERT INTO cars VALUES(2, "Renault", 29000')
-# cur.execute('INSERT INTO cars VALUES(3, "Renault", 57000')
-# cur.execute('INSERT INTO cars VALUES(4, "Bentley", 35000')
-# cur.execute('INSERT INTO cars VALUES(5, "Audi", 52000')
+#     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
+
+# cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
+# cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
+# cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
+# cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
+# cur.execute("INSERT INTO cars VALUES(5, 'Audi', 52000)")
 
 # con.commit()
 # con.close()
 
-import sqlite3
+# con = None
+# try:
+#     con = sqlite3.connect("cars.db")
+#     cur = con.cursor()
+#     cur.executescript("""
+#     CREATE TABLE IF NOT EXISTS cars(
+#         car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         model TEXT,
+#         price INTEGER
+#     );
+#     BEGIN;
+#     INSERT INTO cars VALUES(NULL, 'Renault', 22000);
+#     UPDATE cars2 SET price = price + 100;
+#     """)
+#     con.commit()
+# except sqlite3.Error as e:
+#     if con:
+#         con.rollback()
+#     print("Ошибка выполнения запроса", e)
+# finally:
+#     if con:
+#         con.close()
 
-con = None
-try:
-    con = sqlite3.connect('cars.db')
-    cur = con.cursor()
-    cur.executescript("""
-    CREATE TABLE IF NOT EXISTS CARS(
-     car_id INTEGER PRIMARY KEY AUTOINCREMENT,
-     model TEXT,
-    price INTEGER);
-    BEGIN;
-    INSERT INTO cars VALUES(NULL, "Renault", 22000);
-    UPDATE cars SET price = price + 100;
-    """)
-    con.commit()
-except sqlite3.Error as e:
-    if con:
-        con.rollback()
-    print("Ошибка выполнения запроса", e)
-finally:
-    if con:
-        con.close()
+
+# with sqlite3.connect("cars.db") as con:
+#     cur = con.cursor()
+#     cur.executescript("""
+#         CREATE TABLE IF NOT EXISTS cars(
+#             car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#             model TEXT,
+#             price INTEGER
+#         );
+#         CREATE TABLE IF NOT EXISTS cost(
+#             name TEXT, tr_in INTEGER, buy INTEGER
+#         );
+#     """)
+#
+#     cur.execute("INSERT INTO cars VALUES(NULL, 'Запорожец', 1000)")
+#     last_row_id = cur.lastrowid   # содержит id последней записи
+#     buy_car_id = 2
+#     cur.execute("INSERT INTO cost VALUES('Илья', ?, ?)", (last_row_id, buy_car_id))
+
+
+# with sqlite3.connect("cars.db") as con:
+#     cur = con.cursor()
+#     cur.executescript("""
+#         CREATE TABLE IF NOT EXISTS cars(
+#             car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#             model TEXT,
+#             price INTEGER
+#         );
+#     """)
+#
+#     cur.execute("SELECT model, price FROM cars")
+#     # for res in cur:
+#     #     print(res)
+#     # rows = cur.fetchall()
+#     # print(rows)
+#     rows2 = cur.fetchone()
+#     print(rows2)
+#     rows3 = cur.fetchmany(5)
+#     print(rows3)
+
+
+# with sqlite3.connect("cars.db") as con:
+#     con.row_factory = sqlite3.Row
+#     cur = con.cursor()
+#     cur.executescript("""
+#         CREATE TABLE IF NOT EXISTS cars(
+#             car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#             model TEXT,
+#             price INTEGER
+#         );
+#     """)
+#
+#     cur.execute("SELECT model, price FROM cars")
+#     for res in cur:
+#         print(res['model'], res['price'])
+
+
+# def read_ava(n):
+#     try:
+#         with open(f"avatars/{n}.png", "rb") as f:
+#             return f.read()
+#     except IOError as e:
+#         print(e)
+#         return False
+#
+#
+# def write_ava(name, data):
+#     try:
+#         with open(name, "wb") as f:
+#             f.write(data)
+#     except IOError as e:
+#         print(e)
+#         return False
+#     return True
+#
+#
+# with sqlite3.connect("cars.db") as con:
+#     con.row_factory = sqlite3.Row
+#     cur = con.cursor()
+#     cur.executescript("""
+#         CREATE TABLE IF NOT EXISTS users(
+#             name TEXT,
+#             ava BLOB,
+#             score INTEGER
+#         );
+#     """)
+#
+#     cur.execute("SELECT ava FROM users")
+#     img = cur.fetchone()['ava']
+#
+#     write_ava('out.png', img)
+
+# img = read_ava(2)
+# if img:
+#     binary = sqlite3.Binary(img)
+#     cur.execute("INSERT INTO users VALUES('Илья', ?, 1000)", (binary,))
+
+
+# with sqlite3.connect("cars.db") as con:
+#     cur = con.cursor()
+#
+#     with open("sql_dump.sql", "w") as f:
+#         for sql in con.iterdump():
+#             f.write(sql)
+
+# with sqlite3.connect("cars_new.db") as con:
+#     cur = con.cursor()
+#
+#     with open("sql_dump.sql", "r") as f:
+#         sql = f.read()
+#         cur.executescript(sql)
+
+# data = [('car', 'машина'), ('house', 'дом'), ('tree', 'дерево'), ('color', 'цвет')]
+#
+# con = sqlite3.connect(':memory:')
+# with con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS dict(
+#     eng TEXT,
+#     rus TEXT)""")
+#
+#     cur.executemany("INSERT INTO dict VALUES(?, ?)", data)
+#
+#     cur.execute("SELECT rus FROM dict WHERE eng LIKE 'c%'")
+#     print(cur.fetchall())
+
+# SQLAlchemy ORM
+
+# pip install sqlalchemy
+
+import os
+
+from models.database import DATABASE_NAME
+import create_database as db_creator
+
+
+if __name__ == '__main__':
+    db_is_created = os.path.exists(DATABASE_NAME)
+    if not db_is_created:
+        db_creator.create_database()
