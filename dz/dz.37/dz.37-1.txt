@@ -8,11 +8,11 @@ FROM Seller
 WHERE Status = 'посредник';
 
 3.Вывести среднюю сумму сделки по проданному товару.
-SELECT AVG(CostUnit*Count) AS 'Средняя сумма товара'
+SELECT AVG(CostUnit * Count) AS 'Средняя сумма товара'
 FROM ClientGoods;
 
 4.Посчитать на какую сумму было всего поставлено товара.
-SELECT SUM(CostUnit*Count) AS 'Сумма товара'
+SELECT SUM(CostUnit * Count) AS 'Сумма товара'
 FROM ClientGoods;
 
 5.Определите максимальное количество закупленного товара шт.(кг)
@@ -24,7 +24,7 @@ SELECT MIN(Count * CostUnit) AS 'Минимальная сумма покупки'
 FROM ClientGoods;
 
 7.Посчитать на какую сумму было продано товара магазинам.
-SELECT SUM(cg.CostUnit*cg.Count) AS 'Сумма продажи магазинам'
+SELECT SUM(cg.CostUnit * cg.Count) AS 'Сумма продажи магазинам'
 FROM ClientGoods cg, Client c
 WHERE cg.INNClient = c.INNClient AND Status = "магазин";
 
