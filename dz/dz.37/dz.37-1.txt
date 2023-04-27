@@ -1,127 +1,127 @@
-1.Сосчитать количество клиентов, покупающих товар.
-SELECT COUNT(Client) AS "Количество клиентов"
+1.1.РЎРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ, РїРѕРєСѓРїР°СЋС‰РёС… С‚РѕРІР°СЂ.
+SELECT COUNT(Client) AS "РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ"
 FROM Client;
 
-2.Сколько посредников поставляют товар для фирмы.
-SELECT COUNT(Seller) AS [Количество посредников]
+2.РЎРєРѕР»СЊРєРѕ РїРѕСЃСЂРµРґРЅРёРєРѕРІ РїРѕСЃС‚Р°РІР»СЏСЋС‚ С‚РѕРІР°СЂ РґР»СЏ С„РёСЂРјС‹.
+SELECT COUNT(Seller) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕСЃСЂРµРґРЅРёРєРѕРІ]
 FROM Seller
-WHERE Status = 'посредник';
+WHERE Status = 'РїРѕСЃСЂРµРґРЅРёРє';
 
-3.Вывести среднюю сумму сделки по проданному товару.
-SELECT AVG(CostUnit * Count) AS 'Средняя сумма товара'
+3.Р’С‹РІРµСЃС‚Рё СЃСЂРµРґРЅСЋСЋ СЃСѓРјРјСѓ СЃРґРµР»РєРё РїРѕ РїСЂРѕРґР°РЅРЅРѕРјСѓ С‚РѕРІР°СЂСѓ.
+SELECT AVG(CostUnit * Count) AS 'РЎСЂРµРґРЅСЏСЏ СЃСѓРјРјР° С‚РѕРІР°СЂР°'
 FROM ClientGoods;
 
-4.Посчитать на какую сумму было всего поставлено товара.
-SELECT SUM(CostUnit * Count) AS 'Сумма товара'
+4.РџРѕСЃС‡РёС‚Р°С‚СЊ РЅР° РєР°РєСѓСЋ СЃСѓРјРјСѓ Р±С‹Р»Рѕ РІСЃРµРіРѕ РїРѕСЃС‚Р°РІР»РµРЅРѕ С‚РѕРІР°СЂР°.
+SELECT SUM(CostUnit * Count) AS 'РЎСѓРјРјР° С‚РѕРІР°СЂР°'
 FROM ClientGoods;
 
-5.Определите максимальное количество закупленного товара шт.(кг)
-SELECT MAX(Count) AS 'Максимальное кол-во товара'
+5.РћРїСЂРµРґРµР»РёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєСѓРїР»РµРЅРЅРѕРіРѕ С‚РѕРІР°СЂР° С€С‚.(РєРі)
+SELECT MAX(Count) AS 'РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ С‚РѕРІР°СЂР°'
 FROM SallerGoods;
 
-6.Какая минимальная сумма покупки, на которую клиент сделал заказ.
-SELECT MIN(Count * CostUnit) AS 'Минимальная сумма покупки'
+6.РљР°РєР°СЏ РјРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РїРѕРєСѓРїРєРё, РЅР° РєРѕС‚РѕСЂСѓСЋ РєР»РёРµРЅС‚ СЃРґРµР»Р°Р» Р·Р°РєР°Р·.
+SELECT MIN(Count * CostUnit) AS 'РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РїРѕРєСѓРїРєРё'
 FROM ClientGoods;
 
-7.Посчитать на какую сумму было продано товара магазинам.
-SELECT SUM(cg.CostUnit * cg.Count) AS 'Сумма продажи магазинам'
+7.РџРѕСЃС‡РёС‚Р°С‚СЊ РЅР° РєР°РєСѓСЋ СЃСѓРјРјСѓ Р±С‹Р»Рѕ РїСЂРѕРґР°РЅРѕ С‚РѕРІР°СЂР° РјР°РіР°Р·РёРЅР°Рј.
+SELECT SUM(cg.CostUnit * cg.Count) AS 'РЎСѓРјРјР° РїСЂРѕРґР°Р¶Рё РјР°РіР°Р·РёРЅР°Рј'
 FROM ClientGoods cg, Client c
-WHERE cg.INNClient = c.INNClient AND Status = "магазин";
+WHERE cg.INNClient = c.INNClient AND Status = "РјР°РіР°Р·РёРЅ";
 
-8.Сосчитать общее количество видов закупленных фирмой вафель.
-SELECT COUNT(Goods) AS 'Количество вафель'
+8.РЎРѕСЃС‡РёС‚Р°С‚СЊ РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРёРґРѕРІ Р·Р°РєСѓРїР»РµРЅРЅС‹С… С„РёСЂРјРѕР№ РІР°С„РµР»СЊ.
+SELECT COUNT(Goods) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РІР°С„РµР»СЊ'
 FROM SallerGoods
-WHERE Goods LIKE "Вафли%";
+WHERE Goods LIKE "Р’Р°С„Р»Рё%";
 
-9.Выведите среднюю цену на растительное масло (закупочную).
-SELECT AVG(CostUnit) AS 'Средняя цена растительного масла'
+9.Р’С‹РІРµРґРёС‚Рµ СЃСЂРµРґРЅСЋСЋ С†РµРЅСѓ РЅР° СЂР°СЃС‚РёС‚РµР»СЊРЅРѕРµ РјР°СЃР»Рѕ (Р·Р°РєСѓРїРѕС‡РЅСѓСЋ).
+SELECT AVG(CostUnit) AS 'РЎСЂРµРґРЅСЏСЏ С†РµРЅР° СЂР°СЃС‚РёС‚РµР»СЊРЅРѕРіРѕ РјР°СЃР»Р°'
 FROM SallerGoods
-WHERE Goods IN("масло подсолнечное", "масло кукурузное", "масло оливковое");
+WHERE Goods IN("РјР°СЃР»Рѕ РїРѕРґСЃРѕР»РЅРµС‡РЅРѕРµ", "РјР°СЃР»Рѕ РєСѓРєСѓСЂСѓР·РЅРѕРµ", "РјР°СЃР»Рѕ РѕР»РёРІРєРѕРІРѕРµ");
 
-10.Определите сколько всего было продано килограмм яблок.
-SELECT SUM(cg.Count) AS 'Количество проданных яблок'
+10.РћРїСЂРµРґРµР»РёС‚Рµ СЃРєРѕР»СЊРєРѕ РІСЃРµРіРѕ Р±С‹Р»Рѕ РїСЂРѕРґР°РЅРѕ РєРёР»РѕРіСЂР°РјРј СЏР±Р»РѕРє.
+SELECT SUM(cg.Count) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРґР°РЅРЅС‹С… СЏР±Р»РѕРє'
 FROM ClientGoods cg, SallerGoods sg
-WHERE sg.ID=cg.ID AND Goods LIKE "Яблоки%";
+WHERE sg.ID=cg.ID AND Goods LIKE "РЇР±Р»РѕРєРё%";
 
-11.Определите какое количество картофеля закупили кафе.
-SELECT SUM(cg.Count) AS 'Количество картофеля для кафе'
+11.РћРїСЂРµРґРµР»РёС‚Рµ РєР°РєРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚РѕС„РµР»СЏ Р·Р°РєСѓРїРёР»Рё РєР°С„Рµ.
+SELECT SUM(cg.Count) AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚РѕС„РµР»СЏ РґР»СЏ РєР°С„Рµ'
 FROM Client c, ClientGoods cg, SallerGoods sg
-WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID AND sg.Goods="Картофель белый" AND c.Status = "кафе";
+WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID AND sg.Goods="РљР°СЂС‚РѕС„РµР»СЊ Р±РµР»С‹Р№" AND c.Status = "РєР°С„Рµ";
 
-12.Посчитать сколько клиентов купили перец черный молотый.
+12.РџРѕСЃС‡РёС‚Р°С‚СЊ СЃРєРѕР»СЊРєРѕ РєР»РёРµРЅС‚РѕРІ РєСѓРїРёР»Рё РїРµСЂРµС† С‡РµСЂРЅС‹Р№ РјРѕР»РѕС‚С‹Р№.
 SELECT COUNT(cg.ID)
 FROM SallerGoods sg, ClientGoods cg
-WHERE sg.ID=cg.ID AND sg.Goods="Перец черный молотый";
+WHERE sg.ID=cg.ID AND sg.Goods="РџРµСЂРµС† С‡РµСЂРЅС‹Р№ РјРѕР»РѕС‚С‹Р№";
 
-13.Определить сколько наименований товара было куплено у посредников.
-SELECT DISTINCT COUNT(cg.ID) AS "Количество наименований товара"
+13.РћРїСЂРµРґРµР»РёС‚СЊ СЃРєРѕР»СЊРєРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёР№ С‚РѕРІР°СЂР° Р±С‹Р»Рѕ РєСѓРїР»РµРЅРѕ Сѓ РїРѕСЃСЂРµРґРЅРёРєРѕРІ.
+SELECT DISTINCT COUNT(cg.ID) AS "РљРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёР№ С‚РѕРІР°СЂР°"
 FROM ClientGoods cg;
 
-14.Определить минимальную цену за единицу проданного товара.
+14.РћРїСЂРµРґРµР»РёС‚СЊ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ С†РµРЅСѓ Р·Р° РµРґРёРЅРёС†Сѓ РїСЂРѕРґР°РЅРЅРѕРіРѕ С‚РѕРІР°СЂР°.
 SELECT MIN(CostUnit)
 FROM SallerGoods;
 
-15.Определите минимальную сумму на какую было закуплено товара.
+15.РћРїСЂРµРґРµР»РёС‚Рµ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ СЃСѓРјРјСѓ РЅР° РєР°РєСѓСЋ Р±С‹Р»Рѕ Р·Р°РєСѓРїР»РµРЅРѕ С‚РѕРІР°СЂР°.
 SELECT MIN(CostUnit*Count)
 FROM ClientGoods;
 
-16.Определить максимальную сумму за товар, проданный магазинам.
+16.РћРїСЂРµРґРµР»РёС‚СЊ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ СЃСѓРјРјСѓ Р·Р° С‚РѕРІР°СЂ, РїСЂРѕРґР°РЅРЅС‹Р№ РјР°РіР°Р·РёРЅР°Рј.
 SELECT MAX(cg.CostUnit*cg.Count)
 FROM ClientGoods cg, Client c
-WHERE c.INNClient=cg.INNClient AND c.Status LIKE "магазин";
+WHERE c.INNClient=cg.INNClient AND c.Status LIKE "РјР°РіР°Р·РёРЅ";
 
-17.Определить со сколькими фирмами сотрудничает данная фирма.
+17.РћРїСЂРµРґРµР»РёС‚СЊ СЃРѕ СЃРєРѕР»СЊРєРёРјРё С„РёСЂРјР°РјРё СЃРѕС‚СЂСѓРґРЅРёС‡Р°РµС‚ РґР°РЅРЅР°СЏ С„РёСЂРјР°.
 SELECT c.Client, COUNT(DISTINCT(sg.INNSeller))
 FROM Client c, ClientGoods cg, SallerGoods sg
 WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID
 GROUP BY c.Client;
 
-18.Определить минимальную сумму сделки по закупке товара у производителей.
-SELECT s.Seller, MIN(cg.CostUnit*cg.Count) AS "Минимальная сумма сделки"
+18.РћРїСЂРµРґРµР»РёС‚СЊ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ СЃСѓРјРјСѓ СЃРґРµР»РєРё РїРѕ Р·Р°РєСѓРїРєРµ С‚РѕРІР°СЂР° Сѓ РїСЂРѕРёР·РІРѕРґРёС‚РµР»РµР№.
+SELECT s.Seller, MIN(cg.CostUnit*cg.Count) AS "РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° СЃРґРµР»РєРё"
 FROM ClientGoods cg, SallerGoods sg, Seller s
-WHERE cg.ID=sg.ID AND sg.INNSeller=s.INNSeller AND s.Status="производитель"
+WHERE cg.ID=sg.ID AND sg.INNSeller=s.INNSeller AND s.Status="РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ"
 GROUP BY s.Seller;
 
-19.Определить среднюю цену за пачку чая при покупке.
+19.РћРїСЂРµРґРµР»РёС‚СЊ СЃСЂРµРґРЅСЋСЋ С†РµРЅСѓ Р·Р° РїР°С‡РєСѓ С‡Р°СЏ РїСЂРё РїРѕРєСѓРїРєРµ.
 SELECT AVG(cg.CostUnit)
 FROM ClientGoods cg, SallerGoods sg
-WHERE cg.ID=sg.ID AND sg.Goods LIKE 'Чай%';
+WHERE cg.ID=sg.ID AND sg.Goods LIKE 'Р§Р°Р№%';
 
-20.Определите максимальную сумму прибыли за товар, проданный посреднику.
-SELECT MAX((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "Максимальная сумма прибыли посредника"
+20.РћРїСЂРµРґРµР»РёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ СЃСѓРјРјСѓ РїСЂРёР±С‹Р»Рё Р·Р° С‚РѕРІР°СЂ, РїСЂРѕРґР°РЅРЅС‹Р№ РїРѕСЃСЂРµРґРЅРёРєСѓ.
+SELECT MAX((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РїСЂРёР±С‹Р»Рё РїРѕСЃСЂРµРґРЅРёРєР°"
 FROM ClientGoods cg, SallerGoods sg, Client c
-WHERE sg.ID=cg.ID AND c.INNClient=cg.INNClient AND c.Status LIKE "посредник";
+WHERE sg.ID=cg.ID AND c.INNClient=cg.INNClient AND c.Status LIKE "РїРѕСЃСЂРµРґРЅРёРє";
 
-21.Определите минимальную прибыль за товар, купленный у посредника.
-SELECT MIN((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "Минимальная сумма прибыли посредника"
+21.РћРїСЂРµРґРµР»РёС‚Рµ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РїСЂРёР±С‹Р»СЊ Р·Р° С‚РѕРІР°СЂ, РєСѓРїР»РµРЅРЅС‹Р№ Сѓ РїРѕСЃСЂРµРґРЅРёРєР°.
+SELECT MIN((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РїСЂРёР±С‹Р»Рё РїРѕСЃСЂРµРґРЅРёРєР°"
 FROM ClientGoods cg, Seller s, SallerGoods sg
-WHERE s.INNSeller=sg.INNSeller AND sg.ID=cg.ID AND s.Status LIKE "посредник";
+WHERE s.INNSeller=sg.INNSeller AND sg.ID=cg.ID AND s.Status LIKE "РїРѕСЃСЂРµРґРЅРёРє";
 
-22.Какое количество наименований товара куплено у фирмы.
+22.РљР°РєРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёР№ С‚РѕРІР°СЂР° РєСѓРїР»РµРЅРѕ Сѓ С„РёСЂРјС‹.
 SELECT s.Seller, COUNT(cg.ID)
 FROM ClientGoods cg, SallerGoods sg, Seller s
 WHERE sg.ID=cg.ID AND s.INNSeller=sg.INNSeller
 GROUP BY s.Seller;
 
-23.Сколько в продаже видов печенья.
+23.РЎРєРѕР»СЊРєРѕ РІ РїСЂРѕРґР°Р¶Рµ РІРёРґРѕРІ РїРµС‡РµРЅСЊСЏ.
 SELECT COUNT(Goods)
 FROM SallerGoods
-WHERE Goods LIKE "Печенье%";
+WHERE Goods LIKE "РџРµС‡РµРЅСЊРµ%";
 
-24.Какая максимальная сумма покупки, на которую клиент сделал заказ.
+24.РљР°РєР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃСѓРјРјР° РїРѕРєСѓРїРєРё, РЅР° РєРѕС‚РѕСЂСѓСЋ РєР»РёРµРЅС‚ СЃРґРµР»Р°Р» Р·Р°РєР°Р·.
 SELECT c.Client, MAX(CostUnit*Count)
 FROM Client c, ClientGoods cg
 WHERE c.INNClient=cg.INNClient
 GROUP BY c.Client;
 
-25.Определите среднюю прибыль от перепродажи масла.
-SELECT AVG((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "Средняя прибыль от перепродажи масла"
+25.РћРїСЂРµРґРµР»РёС‚Рµ СЃСЂРµРґРЅСЋСЋ РїСЂРёР±С‹Р»СЊ РѕС‚ РїРµСЂРµРїСЂРѕРґР°Р¶Рё РјР°СЃР»Р°.
+SELECT AVG((sg.CostUnit*sg.Count) - (cg.CostUnit*cg.Count)) AS "РЎСЂРµРґРЅСЏСЏ РїСЂРёР±С‹Р»СЊ РѕС‚ РїРµСЂРµРїСЂРѕРґР°Р¶Рё РјР°СЃР»Р°"
 FROM ClientGoods cg, SallerGoods sg
-WHERE cg.ID=cg.ID AND sg.Goods LIKE "масло%";
+WHERE cg.ID=cg.ID AND sg.Goods LIKE "РјР°СЃР»Рѕ%";
 
-26.Со сколькими посредниками сотрудничает фирма.
-SELECT c.Client AS "Фирма", COUNT(DISTINCT(sg.INNSeller)) AS "Количество посредников"
+26.РЎРѕ СЃРєРѕР»СЊРєРёРјРё РїРѕСЃСЂРµРґРЅРёРєР°РјРё СЃРѕС‚СЂСѓРґРЅРёС‡Р°РµС‚ С„РёСЂРјР°.
+SELECT c.Client AS "Р¤РёСЂРјР°", COUNT(DISTINCT(sg.INNSeller)) AS "РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕСЃСЂРµРґРЅРёРєРѕРІ"
 FROM Client c, ClientGoods cg, SallerGoods sg, Seller s
 WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID AND s.INNSeller=sg.INNSeller
-AND s.Status="посредник"
-GROUP BY c.Client;
+AND s.Status="РїРѕСЃСЂРµРґРЅРёРє"
+GROUP BY c.Client; BY c.Client;
