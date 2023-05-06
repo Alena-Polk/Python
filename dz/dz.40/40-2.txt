@@ -1,0 +1,118 @@
+from sqlalchemy import create_engine, Column, Integer, String
+from faker import Faker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import and_, or_, not_, desc, func, distinct, text
+import os
+
+engine = create_engine(f"sqlite:///cinema.db")
+Session = sessionmaker(bind=engine)
+Base = declarative_base()
+session = Session()
+
+
+# Создаем таблицу в базе данных
+
+
+class Сinema(Base):
+    __tablename__ = 'cinema'
+
+    id = Column(Integer, primary_key=True)
+    country = Column(String(250), nullable=False)
+    town = Column(String(250), nullable=False)
+    name = Column(String(250), nullable=False)
+    number = Column(String(250), nullable=False)
+    rating_cinema = Column(Integer)
+
+    def __init__(self, country, town, name, number, rating_cinema):
+        self.country = country
+        self.town = town
+        self.name = name
+        self.number = number
+        self.rating_cinema = rating_cinema
+
+    def __repr__(self):
+        return f"Кинотеатр (Страна: {self.country}, Город: {self.town}, Название: {self.name}, " \
+               f"Номер телефона: {self.number}, Рейтинг кинотеатра: {self.rating_cinema})"
+
+
+Base.metadata.create_all(engine)
+faker = Faker('ru_RU')
+session.commit()
+
+# Заполняем таблицу
+
+group_list = ['Имаджинариум', 'Пять звезд', 'Мега Ролан', 'Синема Парк', 'Премьер зал',
+                  'Художественный кинотеатр', 'Формула кино', 'Фабрика Грез', 'Мадагаскар']
+
+for _ in range(10):
+    country = faker.country()
+    town = faker.city()
+    name = faker.random.choice(group_list)
+    number = faker.phone_number()
+    rating_cinema = faker.random.randint(1, 10)
+    cinema = Сinema(country, town, name, number, rating_cinema)
+    session.add(cinema)
+
+session.commit()
+session.close()
+
+
+1. Вывести все страны, где находятся кинотеатры.
+
+for it in session.query(Сinema):
+    print(it.country)
+print('*' * 50)
+
+2. Вывести всю информацию о кинотеатрах, рейтинг которых меньше 9.
+for it in session.query(Сinema).filter(Сinema.rating_cinema < 9):
+    print(it)
+print('*' * 50)
+
+3. Вывести всю информацию о кинотеатрах, которые находятся в Парагвайе.
+
+for it in session.query(Сinema).filter(Сinema.country == "Парагвай"):
+    print(it)
+print('*' * 50)
+
+4. Вывести всю информацию о кинотеатрах, название стран которых, начинаются на Р.
+
+for it in session.query(Сinema).filter(Сinema.country.like('Р%')):
+    print(it)
+print('*' * 50)
+
+5. Вывести всю информацию о кинотеатрах "Мега Ролан", которые находятся в России или Португалии.
+
+for it in session.query(Сinema).filter(and_(Сinema.country.in_(['Россия', 'Португалия']),
+                                            Сinema.name == "Мега Ролан")):
+    print(it)
+print('*' * 50)
+
+6. Вывести всю информацию о кинотеатрах, рейтинг которых от 8 до 10 включительно.
+
+for it in session.query(Сinema).filter(Сinema.rating_cinema.between(8, 10)):
+    print(it)
+print('*' * 50)
+
+7. Вывести все страны и города, где находятся кинотеатры, с сортировкой по стране.
+
+for it in session.query(Сinema.country, Сinema.town).order_by(Сinema.country):
+    print(it)
+print('*' * 50)
+
+8. Вывести телефоны кинотеатров, которые начинаются с +7.
+
+for it in session.query(Сinema.name, Сinema.number).filter(Сinema.number.like("+7%")):
+    print(it)
+print('*' * 50)
+
+9. Вывести сколько всего кинотеатров "Имаджинариум".
+
+print(session.query(Сinema).filter(Сinema.name == "Имаджинариум").count())
+print('*' * 50)
+
+10. Вывести всю таблицу в консоль.
+
+for it in session.query(Сinema):
+    print(it)
+print('*' * 50)

@@ -22,4 +22,4 @@ class Сinema(Base):
 
     def __repr__(self):
         return f"Кинотеатр (Страна: {self.country}, Город: {self.town}, Название: {self.name}, " \
-               f"Номер телефона: {self.number}, Рейтинг кинотеатра: {self.number_hospital})"
+               f"Номер телефона: {self.number}, Рейтинг кинотеатра: {self.rating_cinema})"
