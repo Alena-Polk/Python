@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+<h1>Страница с домашним заданием</h1>
+<h3>Курорты и города России</h3>
+<ul>
+    {% for u in cities -%}
+        <li>{{ u }}</li>
+    {% endfor %}
+</ul>
+<p>Домашнее задание выполнено!!!</p>
+{% include 'footer.html' %}

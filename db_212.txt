@@ -1,4 +1,4 @@
-view.py
+﻿view.py
 
 templates
 	index.html
@@ -81,8 +81,15 @@ create_database.py
 	
 	
 pip install faker
-	
-	
+
+Jinja
+
+pip install jinja2
+
+{{ }} - выражение для вставки констркции Python в шаблон (переменная)
+{%  %} - спецификатор шаблона (for, if, else)
+{# #} - блок комментария
+# ## - строчный комментарий	
 	
 	
 	
