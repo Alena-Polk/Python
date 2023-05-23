@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 2;
+    color: #212529;
+    text-align: left;
+    background-color: #9ad0df;
+    box-sizing: border-box;
+    display: block;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: #e6e6e6;
+    border: 2px solid #139D3A;
+    padding: 20px;
+    margin-top: 0;
+    align-items: center;
+    text-transform: uppercase;
+    
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}

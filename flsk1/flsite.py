@@ -1,14 +1,13 @@
-from flask import Flask, render_template, url_for, request, flash, session, redirect, g, abort
+from flask import Flask, render_template, url_for, request, flash, session, redirect, g
 import os
 import sqlite3
-from FDataBase import FDataBase
 
 DATABASE = '/tmp/flsk.db'
 DEBUG = True
-SECRET_KEY = 'ce44bbcffeebd52e5d7cdce7ef076c62cdd1ab87'
+SECRET_KEY = 'yuihfbn2w345tgwey7dujewksidcoflV'
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = 'fgdf4654fgdfgdfg789798hnjmghmh464dfg'
+# app.config['SECRET_KEY'] = 'yuihfbn2w345tgwey7dujewksidcoflV'
 app.config.from_object(__name__)
 
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flsk.db')))
@@ -38,41 +37,14 @@ menu = [
 def get_db():
     if not hasattr(g, 'link_db'):
         g.link_db = connect_db()
-    return g.link_db
+        return g.link_db
 
 
+@app.route("/index")
 @app.route("/")
 def index():
     db = get_db()
-    dbase = FDataBase(db)
-    return render_template('index.html', title="Главная", menu=dbase.get_menu(), posts=dbase.get_posts_anonce())
-
-
-@app.route("/add_post", methods=["POST", "GET"])
-def add_post():
-    db = get_db()
-    dbase = FDataBase(db)
-
-    if request.method == 'POST':
-        if len(request.form['name']) > 4 and len(request.form['post']) > 10:
-            res = dbase.add_post(request.form['name'], request.form['post'], request.form['url'])
-            if not res:
-                flash('Ошибка добавления статьи', category='error')
-            else:
-                flash('Статья добавлена успешно', category='success')
-        else:
-            flash('Ошибка добавления статьи', category='error')
-    return render_template('add_post.html', title="Добавление статьи", menu=dbase.get_menu())
-
-
-@app.route('/post/<alias>')
-def show_post(alias):
-    db = get_db()
-    dbase = FDataBase(db)
-    title, post = dbase.get_post(alias)
-    if not title:
-        abort(404)
-    return render_template('post.html', title=title, post=post, menu=dbase.get_menu())
+    return render_template('index.html', title="Главная", menu=menu)
 
 
 @app.route("/about")
@@ -93,21 +65,19 @@ def contact():
             flash('Сообщение отправлено успешно', category='success')
         else:
             flash('Ошибка отправки', category='error')
-        # print(request.form)
+        #     print(request.form)
         # context = {
         #     'username': request.form['username'],
         #     'email': request.form['email'],
-        #     'message': request.form['message']
+        #     'massage': request.form['massage']
         # }
-        # return render_template('contact.html', title="Обратная связь", menu=menu, **context)
-    return render_template('contact.html', title="Обратная связь", menu=menu)
+        # return render_template("contact.html", title="Обратная связь", menu=menu, **context)
+    return render_template("contact.html", title="Обратная связь", menu=menu)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    db = get_db()
-    dbase = FDataBase(db)
-    return render_template('page404.html', title="Страница не найдена", menu=dbase.get_menu())  # , 404
+    return render_template('page404.html', title="Страница не найдена", menu=menu)
 
 
 @app.route('/login', methods=["POST", "GET"])

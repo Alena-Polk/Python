@@ -90,7 +90,66 @@ pip install jinja2
 {%  %} - спецификатор шаблона (for, if, else)
 {# #} - блок комментария
 # ## - строчный комментарий	
+
+templates
+	home.html
+	
+	header.html
+	footer.html
+	main.html
+	dialogs.html
+	
+	page.html
+	about.html
+	
+	
+pip install flask
+
+flsk
+	flsite.py
+	FDataBase.py
+	
+	sq_db.sql	
+	templates
+		base.html
+		index.html
+		about.html
+		contact.html
+		page404.html
+		login.html
+		add_post.html
+		post.html
+	static
+		css
+			style.css
+		
 	
 	
 	
+http://127.0.0.1:5000/profile/elena
+
+
+int - должны присуствовать только цифры
+float - должны присуствовать только числа с плавающей точкой
+path - можно использовать любые допустимые символы URL плюс символ "/"
+
+
+http://127.0.0.1:5000/contact?username=igor&email=igor%40gmail.com&message=%D0%BF%D1%80%D0%B0%D0%BF%D1%80%D0%B0%D0%BF
+
+http://127.0.0.1:5000/contact
+
+
+flash() - формирование сообщения пользователю
+get_flashed_messages() - обработка сформированных сообщений в шаблоне документа
+
+
+import os
+os.urandom(20).hex()
+
+from flsk.flsite import create_db
+create_db()
+
+
+<img width=100% src="/static/images/1.jpg">
+
 	
