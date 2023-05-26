@@ -93,13 +93,13 @@ def contact():
             flash('Сообщение отправлено успешно', category='success')
         else:
             flash('Ошибка отправки', category='error')
-        # print(request.form)
-        # context = {
-        #     'username': request.form['username'],
-        #     'email': request.form['email'],
-        #     'message': request.form['message']
-        # }
-        # return render_template('contact.html', title="Обратная связь", menu=menu, **context)
+        print(request.form)
+        context = {
+            'username': request.form['username'],
+            'email': request.form['email'],
+            'message': request.form['message']
+        }
+        return render_template('contact.html', title="Обратная связь", menu=menu, **context)
     return render_template('contact.html', title="Обратная связь", menu=menu)
 
 

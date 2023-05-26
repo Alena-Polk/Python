@@ -1,13 +1,14 @@
-from flask import Flask, render_template, url_for, request, flash, session, redirect, g
+from flask import Flask, render_template, url_for, request, flash, session, redirect, g, abort
 import os
 import sqlite3
+from FDataBase import FDataBase
 
 DATABASE = '/tmp/flsk.db'
 DEBUG = True
-SECRET_KEY = 'yuihfbn2w345tgwey7dujewksidcoflV'
+SECRET_KEY = 'ce44bbcffeebd52e5d7cdce7ef076c62cdd1ab87'
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = 'yuihfbn2w345tgwey7dujewksidcoflV'
+# app.config['SECRET_KEY'] = 'fgdf4654fgdfgdfg789798hnjmghmh464dfg'
 app.config.from_object(__name__)
 
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flsk.db')))
@@ -37,14 +38,15 @@ menu = [
 def get_db():
     if not hasattr(g, 'link_db'):
         g.link_db = connect_db()
-        return g.link_db
+    return g.link_db
 
 
-@app.route("/index")
 @app.route("/")
+@app.route("/index")
 def index():
     db = get_db()
-    return render_template('index.html', title="Главная", menu=menu)
+    dbase = FDataBase(db)
+    return render_template('index.html', title="Главная", menu=dbase.get_menu())
 
 
 @app.route("/about")
@@ -65,13 +67,13 @@ def contact():
             flash('Сообщение отправлено успешно', category='success')
         else:
             flash('Ошибка отправки', category='error')
-        #     print(request.form)
-        # context = {
-        #     'username': request.form['username'],
-        #     'email': request.form['email'],
-        #     'massage': request.form['massage']
-        # }
-        # return render_template("contact.html", title="Обратная связь", menu=menu, **context)
+            print(request.form)
+        context = {
+            'username': request.form['username'],
+            'email': request.form['email'],
+            'massage': request.form['massage']
+        }
+        return render_template("contact.html", title="Обратная связь", menu=menu, **context)
     return render_template("contact.html", title="Обратная связь", menu=menu)
 
 

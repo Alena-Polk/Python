@@ -1,4 +1,4 @@
-﻿view.py
+view.py
 
 templates
 	index.html
@@ -151,5 +151,9 @@ create_db()
 
 
 <img width=100% src="/static/images/1.jpg">
+
+
+
+
 
 	

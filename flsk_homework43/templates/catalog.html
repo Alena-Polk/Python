@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<br>
+<ul class="two">
+    {% for p in posts %}
+    <li class="element">
+        <p class="title"><a href="{{ url_for('show_post', id_post=p.id) }}">{{ p.title }}</a></p>
+        <div class="annonce"><b>{{ p.price }} руб.</b>
+            <p>{{ p.description[:100]|striptags }}</p>
+            <p><a href="#" class="button">Купить</a></p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

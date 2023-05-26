@@ -2,6 +2,7 @@ body{
     background: yellow;
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .menu{
     display: flex;
@@ -27,4 +28,8 @@ body{
 .flash.error{
     border: 1px solid #FF4343;
     background:#FF9C9C;
+}
+.menu a{
+    font-weight: bold;
+    color: brown;
 }
