@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fj-_$r7!8kq#x4gjfki&m0%)ay3_--kt(xm)974b+%r#zt!wsk'
+SECRET_KEY = 'django-insecure-kqspsx#1k8tjw_9kkx44q^hymoh%@p3=3f7+l$dv8#!&*#(3dd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -110,7 +110,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

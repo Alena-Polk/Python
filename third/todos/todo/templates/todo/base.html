@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
 {% if user.is_authenticated %}
 <div class="menu">
     <div class="wrap">
         <ul>
             <li class="logo">Пользователь: {{ user.username }}</li>
+            <li><a href="{% url 'createtodo' %}">Создать</a></li>
             <li><a href="{% url 'currenttodos' %}">Актуальные</a></li>
             <li>
                 <form action="{% url 'logoutuser' %}" method="post">
@@ -31,15 +33,13 @@
         </ul>
     </div>
 </div>
-
 {% endif %}
 
 <div class="content">
-  <div class="wrap">
-    {% block content %}
-    {% endblock %}
-  </div>
+    <div class="wrap">
+          {% block content %}
+          {% endblock %}
+    </div>
 </div>
-
 </body>
 </html>
