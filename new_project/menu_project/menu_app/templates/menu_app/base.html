@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню FinTech компании</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #0073e6;
+            display: flex;
+        }
+
+        .menu li {
+            position: relative;
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu li a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #0059b3;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style-type: none;
+            padding: 0;
+            background-color: #0059b3;
+            min-width: 100%;
+        }
+
+        .submenu li {
+            text-align: left;
+            width: 100%;
+        }
+
+        .submenu li a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .submenu li a:hover {
+            background-color: #004080;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="menu">
+    <li><a href="#">Главная</a></li>
+    <li>
+        <a href="#">Продукты</a>
+        <ul class="submenu">
+            <li><a href="#">CRM</a></li>
+            <li><a href="#">Плагины под торговую платформу</a></li>
+            <li><a href="#">Система копирования сделок</a></li>
+        </ul>
+    </li>
+    <li><a href="#">О компании</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+
+</body>
+</html>
