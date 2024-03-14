@@ -23,6 +23,7 @@ body{
     background: lightyellow;
     border: 6px dashed #663366;
     margin: 20px 0;
+    margin-right: 10px;
 }
 .text{
     width: 360px;
@@ -118,7 +119,6 @@ body{
     align-items: center;
     list-style-type: none;
     font-size: 22px;
-    border: #663366;
 }
 .menu .logo{
     margin-right: 30%;

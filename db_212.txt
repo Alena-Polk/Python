@@ -128,10 +128,17 @@ flsk
 	
 http://127.0.0.1:5000/profile/elena
 
-
+Flask
 int - должны присуствовать только цифры
 float - должны присуствовать только числа с плавающей точкой
 path - можно использовать любые допустимые символы URL плюс символ "/"
+
+Django
+str - любая не пустая строка, исключая символ "/"
+int - любое положительное целое число, включая 0
+slug - латиница, символ дефис, подчеркивание
+uuid - цифры, малые латинские символы, дефис
+path -  любая не пустая строка, включая символ "/"
 
 
 http://127.0.0.1:5000/contact?username=igor&email=igor%40gmail.com&message=%D0%BF%D1%80%D0%B0%D0%BF%D1%80%D0%B0%D0%BF
@@ -216,14 +223,191 @@ http://127.0.0.1:8000/blog/1/
 
 third
 
+
+
 django-admin startproject todos
 python manage.py startapp todo
 
 
 models.CASCADE - если пользователь будет удален, то удалятся все его задачи
-models.PROTECTED - запрещает удалять пользователя, пока у него есть задачи
+models.PROTECT - запрещает удалять пользователя, пока у него есть задачи
 models.SET_NULL - задачи останутя в базе, даже при удалении пользователя, но значение в поле задачи изменится на NULL
 models.SET_DEFAULT -задачи останутя в базе, даже при удалении пользователя, но значение в поле задачи изменится на значение по умолчанию
 
+forms.py
 
+fourth
+
+django-admin startproject devsearch
+
+python manage.py startapp projects
+python manage.py startapp users
+
+python manage.py shell
+
+from projects.models import Project
+
+Project.objects.filter(vote_total__gte=37)
+Project.objects.exclude(id=1).order_by('title')
+
+quit()
+
+ForeignKey - один ко многим
+ManyToManyField - многие ко многим
+OneToOneField - один к одному
+
+
+signals.py
+
+utils.py
+
+pagination.html
+
+http://127.0.0.1:8000/projects/?search_query=web
+http://127.0.0.1:8000/projects/?page=2
+
+http://127.0.0.1:8000/projects/?search_query=web
+http://127.0.0.1:8000/projects/?search_query=web&page=2
+
+http://127.0.0.1:8000/?search_query=i&page=2
+
+message_form.html
+
+fifth
+
+django-admin startproject programming_blog
+
+python manage.py startapp blog
+
+https://ru.wikipedia.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BF%D0%B5%D1%86%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B
 	
+https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB:%D0%98%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5
+
+templatetags
+	blog_tags.py
+	
+	
+utils.py
+
+
+
+
+ 1) Переопределить стили в админ-панели.
+ 2) Зарегистрироваться на сайте 	     https://www.pythonanywhere.com
+ 
+ 
+mkvirtualenv --python=/usr/bin/python3.10 blogvenv
+mkvirtualenv --python=/usr/bin/python3.9 blogvenv
+
+deactivate  - выход из виртуального окружения
+workon blogvenv  - для повторного входа в виртуальное окружение
+
+pip install django
+pip install pillow
+pip install django-simple-captcha
+pip install django-ckeditor
+
+pwd - просмотр пути к папке
+
+/home/HelenKozovyakina/.virtualenvs/blogvenv
+
+python manage.py collectstatic
+
+/home/HelenKozovyakina/blog/static
+/home/HelenKozovyakina/blog/media
+
+https://helenkozovyakina.pythonanywhere.com/
+
+sixth
+django-admin startproject landing_page
+
+python manage.py startapp cms
+python manage.py startapp price
+python manage.py startapp crm
+python manage.py startapp telebot
+
+
+@BotFather
+Бот обработчик заявок с сайта
+
+bot_test_send_message_bot
+
+6607657163:AAHZJV7MUXnWrNL98jVzy2aeTG-IYCoBvt4
+
+https://api.telegram.org/bot<token>/НАЗВАНИЕ_МЕТОДА
+
+https://api.telegram.org/bot6607657163:AAHZJV7MUXnWrNL98jVzy2aeTG-IYCoBvt4/sendMessage?chat_id=-806029148&text=текст
+
+Центр компьютерной поддержки
+
+@get_id_bot
+
+/my_id@get_id_bot
+
+sendmessage.py
+
+requests
+
+
+
+django-admin startproject app
+python manage.py startapp exchange
+python manage.py startapp weather
+
+
+
+eighth
+django-admin startproject shop
+python manage.py startapp products
+python manage.py startapp users
+python manage.py startapp orders
+
+category.html
+
+
+https://myaccount.google.com/
+
+store_shop_site
+
+
+reset_password.html
+reset_password_sent.html
+reset.html
+reset_password_complete.html
+
+\! chcp 1251
+\l
+
+CREATE DATABASE store_shop_db;
+\c store_shop_db
+\conninfo
+
+DROP DATABASE store_shop_db; (не делать)
+
+CREATE ROLE store_user_1 with password 'store_shop';  
+# store_user_1 - имя пользователя
+# store_shop - пароль
+ALTER ROLE "store_user_1" WITH LOGIN;
+GRANT ALL PRIVILEGES ON DATABASE "store_shop_db" to store_user_1;
+ALTER USER store_user_1 CREATEDB;
+
+
+grant usage on schema public to public;
+grant create on schema public to public;
+
+pip install psycopg2
+
+
+GitHub
+Client ID
+f02993a71581c1e2d99b
+
+Client secrets
+c1970046dd436de9ebe3305dcd5f218ea77afb35
+
+
+https://forms.gle/x8ati8cyeRNXCx4M8
+
+context_processors.py
+
+

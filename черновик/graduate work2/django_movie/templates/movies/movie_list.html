@@ -1,0 +1,56 @@
+{% extends 'movies/base.html' %}
+{% block header %} bg1 {% endblock header %}
+{% block movie %}
+<div class="left-ads-display col-lg-9">
+    <div class="row">
+        {% for movie in movie_list %}
+        <div class="col-md-4 product-men">
+            <div class="product-shoe-info editContent text-center mt-lg-4">
+                <div class="men-thumb-item">
+                    <a href="{{ movie.get_absolute_url}}" class="editContent"><img src="{{ movie.poster.url }}"
+                                                                                   class="img-fluid" alt=""></a>
+                </div>
+                <div class="item-info-product">
+                    <h4 class="">
+                        <a href="{{ movie.get_absolute_url}}" class="editContent">
+                            {{ movie.title }}
+                        </a>
+                    </h4>
+
+                    <div class="product_price">
+                        <div class="grid-price">
+                            <span class="money editContent">{{ movie.tagline }}</span>
+                        </div>
+                    </div>
+                    <ul class="stars">
+                        <li><a href="{% url 'filter_movies_by_rating' 1 %}"
+                               class="{% if selected_rating == 1 %}active{% endif %}" style="color: red">1<span
+                                class="fa fa-star"></span></a>
+                        </li>
+                        <li><a href="{% url 'filter_movies_by_rating' 2 %}"
+                               class="{% if selected_rating == 2 %}active{% endif %}" style="color: red">2<span
+                                class="fa fa-star"></span></a>
+                        </li>
+                        <li><a href="{% url 'filter_movies_by_rating' 3 %}"
+                               class="{% if selected_rating == 3 %}active{% endif %}" style="color: red">3<span
+                                class="fa fa-star-half-o"></span></a></li>
+                        <li><a href="{% url 'filter_movies_by_rating' 4 %}"
+                               class="{% if selected_rating == 4 %}active{% endif %}" style="color: red">4<span
+                                class="fa fa-star-half-o"></span></a></li>
+                        <li><a href="{% url 'filter_movies_by_rating' 5 %}"
+                               class="{% if selected_rating == 5 %}active{% endif %}" style="color: red">5<span
+                                class="fa fa-star-o"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="grid-img-right mt-4 text-right bg bg1">
+        {% include 'include/pagination.html' %}
+    </div>
+</div>
+{% endblock movie %}
+
+
+

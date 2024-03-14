@@ -1,0 +1,16 @@
+{% extends 'fitness/base.html' %}
+{% block content %}
+<h1>
+    Тренеры
+</h1>
+<div class="content_prof">
+    {% for profile in profiles %}
+    <a href="{% url 'coach' profile.id %}"><ul class="prof">
+        <li><b>{{ profile.name }}</b></li>
+        <li>{{ profile.short_info }}</li>
+        <li><img src="{{ profile.profile_image.url }}" alt=""></li>
+    </ul></a>
+    {% endfor %}
+</div>
+
+{% endblock %}

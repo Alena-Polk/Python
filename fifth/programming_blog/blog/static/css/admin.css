@@ -1,0 +1,53 @@
+#header,
+.module caption,
+.inline-group h2,
+#changelist-filter h2, 
+.module caption, 
+.selector-chosen h2,
+.module h2 {
+    background: #cf91e0 !important;
+}
+
+.content h1{
+    color: rgb(255, 30, 94);
+    font-size:2.0rem;
+
+}
+#content-related h3{
+    color: rgb(255, 30, 94); 
+    font-size:1.5rem;
+    font-weight:normal;
+}
+#user-tools, 
+#logout-form button{
+    font-size:1.2rem;
+}
+.submit-row a.deletelink{
+    background: #79aec8 !important;
+    color: #fff !important;
+}
+#branding h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+  }
+
+
+#header {
+    color: #f9f4f9;
+ }
+a:link,
+a:visited
+{
+    color: #53114c !important;
+}
+
+#changelist table tbody tr:has(input[type=checkbox]:checked),
+.submit-row input,
+.button.default, input[type=submit].default, .submit-row input.default{
+    background: #531376 !important;
+}
+
+.submit-row a.deletelink{
+    background: #79aec8 !important;
+    color: #fff !important;
+}
